@@ -8,7 +8,4 @@ def index(request):
     return render(request, 'index.html')
 
 def exibir(request, perfil_id):
-    perfil = Perfil()
-    if perfil_id == '1':
-        perfil = Perfil('Alison Cassis', 'alison@cassis.com', '11919191911', 'CassisCorp')
-    return render(request, 'perfil.html', {'perfil' : perfil})
+    return render(request, 'perfil.html', {'perfil' : Perfil.objects.get(id=perfil_id)})
