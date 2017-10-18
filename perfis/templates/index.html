@@ -7,7 +7,17 @@
 </head>
 
 <body>
-    Olá Django
+    <h1>Index page</h1> {% if perfis %}
+    <ul>
+        {% for perfil in perfis %}
+        <li style="margin-top:10px;">
+            <a href="{% url 'exibir' perfil.id %}">{{perfil.nome|upper}} / {{perfil.email}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Nenhum perfil encontrado</p>
+    {% endif %}
 </body>
 
 </html>
